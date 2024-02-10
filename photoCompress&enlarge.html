@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image compresser and resizer</title>
+    <style>
+      body{
+        display: flex;
+        justify-content: center;
+        background-color: #3cd4e8;
+        height: 100vh;
+        align-items: center;
+      }
+      .main{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+        outline: 4px solid aqua ;
+        border-radius: 4%;
+        overflow: hidden;
+        width: 500px;
+       padding: 2rem;
+      }
+      .right{
+        display: flex;
+        flex-direction: column;
+        margin: 1rem;
+      }
+      .left{
+        display: flex;
+        flex-direction: column;
+        margin: 1rem;
+      }
+      .size{
+        display: flex;
+        flex-direction: row;
+        margin: 1rem;
+      }
+      input{
+        width: 100px;
+        accent-color: #3cd4e8;
+      }
+      button{
+        width: 25rem;
+        height: 40px;
+        background-color: #3cd4e8;
+        border: 0;
+        border-radius: 2%;
+      }
+      .filepot{
+        border: 3px dotted aqua;
+        width: 22rem;
+        height:16rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+      .filepot img{
+        width:100%;
+        height: 100%;
+        object-fit: cover;
+
+      }
+   .para{
+    z-index: 121122;
+    cursor: pointer;
+   }
+    </style>
+</head>
+<body>
+    <div class="main">
+      <div class="filepot">
+        <p class="para">Browse file to upload
+        <input class="file" type="file" accept="image/*" hidden>
+      </p></div>
+      <div class="size">
+      <div class="right">
+        <label for="width">Width</label>
+        <input type="number" name="width" id="width">
+        <label for="quality" class="quality"> Reduce Quality
+          <input type="checkbox" name="quality" id="quality">
+        </label>
+      </div>
+      <div class="left">
+        <label for="height">Height</label>
+        <input type="number" name="height" id="height">
+        <label for="ratio" class="ratio">Lock Screen Ratio
+          <input type="checkbox" name="ratio" id="ratio">
+        </label>
+      </div></div>
+
+      <button class="download">download image</button>
+
+    </div>
+<script>
+  const Filepot =document.querySelector(".filepot");
+  const file =Filepot.querySelector("input");
+  const imgPreview =document.createElement("img");
+  const Para =Filepot.querySelector("p");
+  const Width =document.querySelector(".right input");
+  const Height =document.querySelector(".left input");
+  const ratio = document.querySelector(".ratio input")
+  const quality = document.querySelector(".quality input")
+
+  const downloadBtn = document.querySelector(".download")
+
+   let Imageratio;
+  console.log(ratio)
+
+  const loadFile = (e)=>{
+    Filepot.append(imgPreview);
+    const image=e.target.files[0];
+    if(image) {Para.style.display = "none";}
+    imgPreview.src=URL.createObjectURL(image);
+    imgPreview.addEventListener("load",()=>{
+      Width.value = imgPreview.naturalWidth;
+      Height.value=imgPreview.naturalHeight;
+      Imageratio = imgPreview.naturalWidth/imgPreview.naturalHeight;
+    })
+  }
+Width.addEventListener("keyup",()=>{
+  const height = ratio.checked? Math.floor( Width.value/Imageratio):Height.value;
+  Height.value=height;
+})
+Height.addEventListener("keyup",()=>{
+  const width = ratio.checked? Math.floor( Height.value*Imageratio):Width.value;
+  Width.value=width;
+})
+
+const resizeDownload=()=>{
+  const canvas = document.createElement("canvas");
+  const a = document.createElement("a");
+
+  const ctx = canvas.getContext("2d");
+  const imgQuality = quality.checked?0.7:1.0;
+  canvas.width= Width.value;
+  canvas.height= Height.value;
+
+  ctx.drawImage(imgPreview,0,0,canvas.width,canvas.height);
+  a.href=canvas.toDataURL('image/jpeg',imgQuality);
+  a.download = new Date().getTime();
+  a.click();
+}
+
+ downloadBtn.addEventListener('click',resizeDownload);
+
+  file.addEventListener("change",loadFile)
+  Filepot.addEventListener("click",()=>file.click());
+</script>
+</body>
+</html>

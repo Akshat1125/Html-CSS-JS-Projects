@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Form</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        .form {
+            display: flex;
+            align-items: flex-start;
+            height: auto;
+            flex-direction: column;
+        }
+
+        .info input{
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .form .info{
+            align-self:center;
+        }
+        .quizBox label{
+         margin-left: 1rem;
+        }
+        .quizBox{
+            outline: 1px solid black;
+            width: 75rem;
+        }
+    </style>
+</head>
+
+<body>
+    <button onclick="pop()">pop</button>
+    <form action="quizForm.js" method="post">
+    <div class="form">
+            <div class="info">
+                <input type="text" placeholder="Name" name="Name">
+                <input type="text" name="branch" placeholder="Branch">
+                <input type="text" name="rollNo" placeholder="RollNo">
+                <h2>Quiz Start Here</h2>
+            </div>
+            <div class="quizBox">
+                <h3 name="ranchi" style="border-bottom: 1px solid black;">1:What is the capital of ranchi?</h3>
+                <label for="1">1:ranchi</label>
+                <input type="radio" name="ranchi" id="1"><br>
+                <label for="2">2:ranchi</label>
+                <input type="radio" name="ranchi" id="2"><br>
+                <label for="3">3:ranchi</label>
+                <input type="radio" name="ranchi" id="3"><br>
+                <label for="4">4:ranchi</label>
+                <input type="radio" name="ranchi" id="4"><br>
+            </div>
+        </div>
+    </form>
+<script>
+    function pop(){
+    let form=document.querySelector(".form");
+    let div=document.createElement("div");
+    form.appendChild(div);
+    div.classList.add("quizBox");
+    div.innerHTML=`<h3 name="ranchi" style="border-bottom: 1px solid black;">hello world?</h3>
+                <label for="1">pop</label>
+                <input type="radio" name="ranchi" id="1"><br>
+                <label for="2">2:ranchi</label>
+                <input type="radio" name="ranchi" id="2"><br>
+                <label for="3">3:ranchi</label>
+                <input type="radio" name="ranchi" id="3"><br>
+                <label for="4">4:ranchi</label>
+                <input type="radio" name="ranchi" id="4"><br>
+            </div>`;
+            }
+</script>
+</body>
+
+</html>

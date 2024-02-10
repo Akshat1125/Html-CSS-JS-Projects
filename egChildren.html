@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>The Element Object</h1>
+<h2>The children Property</h2>
+
+<p>Click "Change" to change the background of all child elements of body.</p>
+
+<button onclick="myFunction()">Change</button>
+<div id="poor">
+<h2>I am a h2 element</h2>
+<p>I am a p element</p>
+<h3>I am a span element</h3>
+</div>
+<script>
+let answer="h2";
+const collection = document.querySelector("#poor");
+collection.addEventListener("mouseover",function pop(){
+  let target=event.target;
+  target.style.backgroundColor="red";
+})
+collection.addEventListener("mouseout",function push(){
+  let target=event.target;
+  target.style.backgroundColor="white";
+})
+function myFunction(){
+  collection.removeEventListener("mouseover",pop())
+}
+//function myFunction() {
+// for (let i = 0; i < collection.length; i++) {
+//      console.log(collection.childNodes[1])
+//   }
+//}
+</script>
+
+</body>
+</html>

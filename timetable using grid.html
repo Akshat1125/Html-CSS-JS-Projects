@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>time table using grid</title>
+    <style>
+        .itemHead13{grid-area: day;}
+        .itemHead1{grid-area: monday;}
+        .itemHead2{grid-area: tuesday;}
+        .itemHead3{grid-area: wednesday;}
+        .itemHead4{grid-area: thursday;}
+        .itemHead5{grid-area: friday;}
+        .itemHead6{grid-area: saturday;}
+        .itemHead7{grid-area: sunday;}
+        .itemHead8{grid-area: strt;}
+        .itemHead9{grid-area: mid;}
+        .itemHead10{grid-area: somemid;}
+        .itemHead11{grid-area: aftermid;}
+        .itemHead12{grid-area: daily;}
+        .item1{grid-area: a1;}
+        .item2{grid-area: a2;}
+        .item3{grid-area: a3;}
+        .item4{grid-area: a4;}
+        .item5{grid-area: a5;}
+        .item6{grid-area: a6;}
+        .item7{grid-area: a7;}
+        .item8{grid-area: b1;}
+        .item9{grid-area: b2;}
+        .item10{grid-area: b3;}
+        .item11{grid-area: b4;}
+        .item12{grid-area: b5;}
+        .item13{grid-area: b6;}
+        .item14{grid-area: b7;}
+        .item15{grid-area: c1;}
+        .item16{grid-area: c2;}
+        .item17{grid-area: c3;}
+        .item18{grid-area: c4;}
+        .item19{grid-area: c5;}
+        .item20{grid-area: c6;}
+        .item21{grid-area: c7;}
+        .item22{grid-area: d1;}
+        .item23{grid-area: d2;}
+        .item24{grid-area: d3;}
+        .item25{grid-area: d4;}
+        .item26{grid-area: d5;}
+        .item27{grid-area: d6;}
+        .item28{grid-area: d7;}
+        .item29{grid-area: e1;}
+        .item30{grid-area: e2;}
+        .item31{grid-area: e3;}
+        .item32{grid-area: e4;}
+        .item33{grid-area: e5;}
+        .item34{grid-area: e6;}
+        .item35{grid-area: e7;}
+
+        .grid-container{
+           display: grid;
+           grid-template-areas: 'day monday tuesday wednesday thursday friday saturday sunday'
+         'strt a1 a2 a3 a4 a5 a6 s7'
+           'mid b1 b2 b3 b4 b5 b6 b7'
+            'somemid c1 c2 c3 c4 c5 c6 c7'
+           'aftermid d1 d2 d3 d4 d5 d6 d7'
+           'daily e1 e2 e3 e4 e5 e6 e7';
+           gap:5px;
+           font-size: 10px;
+           background-color: #2196F3;
+
+        }
+        .grid-container>h1{
+            background-color:rgba(255, 255, 255, 0.8);;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Time table</h1>
+    <div class="grid-container">
+        <h1 class="itemhead13">Day/Time</h1>
+       <h1 class="itemHead1">Monday</h1>
+       <h1 class="itemHead2">Tuesday</h1>
+       <h1 class="itemHead3">Wednesday</h1>
+       <h1 class="itemHead4">Thursday</h1>
+       <h1 class="itemHead5">Friday</h1>
+       <h1 class="itemHead6">Saturday</h1>
+       <h1 class="itemHead7">Sunday</h1>
+       <h1 class="itemHead8">7:00-9:00</h1>
+       <h1 class="itemHead9">9:00-11:00</h1>
+       <h1 class="itemHead10">11:00-1:00</h1>
+       <h1 class="itemHead11">1:00-3:00</h1>
+       <h1 class="itemHead12">5:00-6:00</h1>
+      <p class="item1">wake up</p>
+      <p class="item2"></p>
+      <p class="item3"></p>
+      <p class="item4"></p>
+      <p class="item5"></p>
+      <p class="item6"></p>
+      <p class="item7"></p>
+      <p class="item8"></p>
+      <p class="item9"></p>
+      <p class="item10"></p>
+      <p class="item11"></p>
+      <p class="item12"></p>
+      <p class="item13"></p>
+      <p class="item14"></p>
+      <p class="item15"></p>
+      <p class="item16"></p>
+      <p class="item17"></p>
+      <p class="item18"></p>
+      <p class="item19"></p>
+      <p class="item20"></p>
+      <p class="item21"></p>
+      <p class="item22"></p>
+      <p class="item23"></p>
+      <p class="item24"></p>
+      <p class="item25"></p>
+      <p class="item26"></p>
+      <p class="item27"></p>
+      <p class="item28"></p>
+      <p class="item29"></p>
+      <p class="item30"></p>
+      <p class="item31"></p>
+      <p class="item32"></p>
+      <p class="item33"></p>
+      <p class="item34"></p>
+      <p class="item35"></p>
+    </div>
+</body>
+</html>

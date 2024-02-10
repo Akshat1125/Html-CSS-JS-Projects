@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loader with samosa</title>
+    <style>
+        body {
+  margin: 20px;
+}
+.samosa{
+  height:0;
+  width:0;
+  border-top:40px solid transparent;
+  border-left: 40px solid transparent;
+  border-right: 40px solid transparent;
+  border-bottom: 40px solid ;
+  border-radius:50%;
+ animation-name:loader;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes loader{
+
+  25%{
+    border-top:40px solid transparent;
+  border-left: 40px solid transparent;
+  border-right: 40px solid ;
+  border-bottom: 40px solid transparent;
+  }
+  50%{
+      border-top:40px solid ;
+  border-left: 40px solid transparent;
+  border-right: 40px solid transparent;
+  border-bottom: 40px solid transparent;
+  }
+  75%{
+      border-top:40px solid transparent;
+  border-left: 40px solid ;
+  border-right: 40px solid transparent;
+    border-bottom: 40px solid transparent;
+}
+  100%{
+      border-top:40px solid transparent;
+  border-left: 40px solid transparent;
+  border-right: 40px solid transparent;
+  border-bottom: 40px solid ;
+  }
+}
+
+    </style>
+</head>
+<body>
+    <div class="samosa"></div>
+</body>
+</html>

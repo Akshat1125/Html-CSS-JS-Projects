@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>random color gen</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        .box {
+            width: 12rem;
+            height: auto;
+            background-color: antiquewhite;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin: 2rem;
+            padding: 1rem;
+        }
+
+        .colorbox {
+            width: 11rem;
+            height: 10rem;
+
+        }
+
+        .colorname {
+            width: 8rem;
+            text-align: center;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="colorbox" style="background-color: aqua;">
+        </div>
+        <div class="colorname">#ffffff</div>
+
+    </div>
+    <script>
+        // function hot(rand) {
+        //     navigator.clipboard.writeText(`#${rand}`)
+        // }
+
+        function randcolor() {
+            for (let index = 0; index < 16; index++) {
+                let doc = document.querySelector("body");
+                let div = document.createElement("div");
+                let btn = document.createElement("button");
+                btn.innerText="copy";
+              let  randomcolor = Math.floor(Math.random() * 0xffffff).toString(16);
+              randomcolor=randomcolor.padStart(6,'0');
+                btn.addEventListener('click',()=>hot(randomcolor));
+                div.classList.add("box");
+                div.innerHTML = `
+        <div class="colorbox" style="background-color: #${randomcolor};">
+        </div>
+        <div class="colorname ">#${randomcolor}</div>
+        `
+        div.appendChild(btn);
+
+                doc.appendChild(div);
+            }
+        }
+        randcolor();
+        function hot(rand) {
+                navigator.clipboard.writeText(`#${rand}`)
+            }
+    </script>
+</body>
+
+</html>

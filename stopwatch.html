@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch</title>
+    <style>
+        *{
+            padding:0px;
+            margin: 0px;
+        }
+        .container{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100vw;
+            height: 100vh;
+            background-image: linear-gradient(#eed93b,#78bbe8);
+        }
+        .box{
+            background-image: linear-gradient(#c2cbe0,#7be4e4);
+            height: 18rem;
+            width:44rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .handle{
+            margin: 20px;
+        }
+        .demo{
+            background-image: linear-gradient(#e3e5a1,#8deb88);
+            /* border: 1px solid blue; */
+            width: 15rem;
+            text-align: center;
+            font-size: 55px;
+        }
+        .play{
+            margin-right:20px;
+            border: 2px solid blue;
+            cursor: pointer;
+        }
+        .pause{
+            margin-right: 20px;
+             border: 2px solid orange;
+             cursor:pointer;
+        }
+        .restart{
+             border: 2px solid red;
+             cursor:pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+          <p class="demo">00:00:00</p>
+          <div class="handle"><span class="play" onclick="watchStart()">play</span><span class="pause" onclick="pause()">pause</span><span class="restart" onclick="restart()">restart</span></div>
+        </div>
+    </div>
+<script>
+    let demo=document.querySelector(".demo");
+    let sec=0;
+    let min=0;
+    let hour=0;
+    let timer=null;
+    const x=()=>{
+        sec++;
+        if(sec>59){
+            sec=0;
+            min++;
+            if(min>59){
+                min=0;
+                hour++;
+            }
+        }
+        let h=hour<10?"0"+hour:hour;
+        let m=min<10?"0"+min:min;
+        let s=sec<10?"0"+sec:sec;
+        demo.innerText=`${h}:${m}:${s}`;
+    }
+    const watchStart=()=>{
+        if(timer!==null)
+        clearInterval(timer);
+        timer=setInterval(x,1000);
+    }
+    const pause=()=>{
+        clearInterval(timer);
+    }
+    const restart=()=>{
+        clearInterval(timer);
+        [hour,min,sec]=[0,0,0];
+        demo.innerText="00:00:00";
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Color Generator</title>
+
+    <!--css-->
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        body {
+            background: black;
+        }
+
+        .container {
+            margin: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .container .color {
+            list-style: none;
+            margin: 13px;
+            padding: 7px;
+            cursor: pointer;
+            background: bisque;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(32, 67, 44, 0.5);
+        }
+
+        .container .color:active {
+            transform: scale(0.95);
+        }
+
+        .color .rect-box {
+            width: 185px;
+            height: 188px;
+            background: orange;
+        }
+
+        .color:hover .hex-value {
+            filter: brightness(106%);
+        }
+
+        .color .hex-value {
+            font-size: large;
+            display: block;
+            margin: 12px 0 8px;
+            color: black;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+
+        .refresh-btn {
+            outline: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: bisque;
+            background-color: orange;
+            border-radius: 8px;
+            cursor: pointer;
+            padding: 12px 20px;
+            box-shadow: 0 15px 25px rgba(32, 67, 44, 0.5);
+            border: 2px solid bisque;
+            transform: translateX(-60%);
+            position: fixed;
+            left: 50%;
+            bottom: 40px;
+
+        }
+    </style>
+</head>
+
+
+
+<!--html body-->
+
+
+
+<body>
+    <ul class="container">
+    </ul>
+    <button class="refresh-btn">Refresh table</button>
+
+
+<!--script -->
+
+
+    <script>
+        const container = document.querySelector('.container');
+        const refreshBtn = document.querySelector('.refresh-btn');
+
+        const maxPlatteBox = 32;
+
+        const generatePalette = () => {
+            container.innerHTML =''; //clear the container
+            for (let i = 0; i < maxPlatteBox; i++) {
+                //genertaing a random code
+            let randomHex = Math.floor(Math.random() * 0xffffff).toString(16);
+            randomHex = `#${randomHex.padStart(6,'0')}`;
+            let randomlex = Math.floor(Math.random() * 0xffffff).toString(16);
+            randomlex = `#${randomlex.padStart(6,'0')}`;
+
+            //creating a new li elemn et and inserting it into container
+            let linear =`linear-gradient(${randomHex},${randomlex})`;
+            const color = document.createElement('li');
+            color.classList.add('color');
+            color.innerHTML =` <div class="rect-box" style='background-image: linear-gradient(${randomHex},${randomlex});' ></div>
+                               <span class="hex-value">linear</span>`;
+            color.addEventListener('click', () => copyColor(color,linear));
+            container.appendChild(color);
+        }
+    }
+
+    generatePalette();
+
+    const copyColor= (elem,hexVal) => {
+        const colorElement = elem.querySelector('.hex-value');
+        //Copying the hex value, updating the text to copied,
+        //and changing text back to original hex value after 1 sec
+        navigator.clipboard.writeText(hexVal).then(() => {
+            colorElement.innerText = 'Copied';
+            setTimeout(() => colorElement.innerText = hexVal,1000);
+        }).catch(() => alert('failed to copy the color code'));
+    }
+        refreshBtn.addEventListener('click', generatePalette);
+    </script>
+</body>
+
+</html>

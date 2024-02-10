@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>snake game</title>
+    <style>
+*{
+    padding: 0;
+    margin:0;
+}
+.container{
+    height: 95vh;
+    width: 100vw;
+    background-image: linear-gradient(#ffffff,#234323);
+    display:flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.gamebox{
+    height:70vh;
+    width:60vw;
+    background-image: linear-gradient(lawngreen,white);
+    display: grid;
+    grid-template-columns: repeat(35,1fr);
+    grid-template-rows: repeat(20,1fr);
+}
+.head{
+    background-color: #f23433;
+}
+.snake{
+    background-color: aquamarine;
+    border-collapse: collapse;
+}
+.food{
+    background-color: rgb(18, 43, 230);
+}
+.score{
+    background-color: #f23433;
+    height: 5vh;
+    width:20vw;
+    margin-left: 45vw;
+    text-align: center;
+    font-size: 4vh;
+}
+    </style>
+</head>
+<body>
+    <div class="score">Score:0</div>
+    <div class="container">
+        <div class="gamebox">
+        </div>
+    </div>
+    <script src="snakegame.js"></script>
+</body>
+</html>

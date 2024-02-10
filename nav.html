@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nav bar</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    nav {
+      background-color: black;
+      position: relative;
+      top: 0;
+    }
+
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      padding-top: 8px;
+    }
+
+    li {
+      height: 2rem;
+      margin-left: 2rem;
+      list-style: none;
+    }
+
+    a {
+      color: aliceblue;
+      text-decoration: none;
+
+    }
+
+    li:hover {
+      background-color: #4d4b4b;
+      margin: none;
+    }
+
+    a:hover {
+      color: aqua;
+    }
+
+    li:active {
+      background-color: #4d4b4b;
+      color: aqua;
+    }
+
+    .pop {
+      display: none;
+    }
+
+    @media screen and (max-width:700px) {
+      .pop {
+        display: block;
+        cursor: pointer;
+        width: 20px;
+      }
+
+      hr {
+        border-top: 10px solid red;
+        width: 2rem;
+      }
+
+      .polo {
+        overflow: hidden;
+      }
+
+      #bang {
+        display: none;
+        width: 100px;
+      }
+
+      h2 {
+        padding: 0;
+      }
+
+    }
+
+    h2 {
+      color: aquamarine;
+      position: absolute;
+      right: 10%;
+      padding-top: 5px;
+    }
+
+    #bang li .active a {
+      background-color: #f83a3a;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="polo">
+    <h2>hello nav</h2>
+    <div class="pop" onclick="y()">
+      <hr>
+      <hr>
+      <hr>
+    </div>
+    <ul id="bang">
+      <li class="active"><a class="happy" href="javascript:void(0);">Home</a></li>
+      <li><a class="happy" href="#">about</a></li>
+      <li><a class="happy" href="">blog</a></li>
+      <li><a class="happy" href="">contact us</a></li>
+    </ul>
+  </nav>
+  <input type="text" name="window" id="search" placeholder="search..">
+  <p id="demo"></p>
+  <script>
+    const y = () => {
+      var x = document.getElementById("bang");
+      if (x.style.display === 'block')
+        x.style.display = "none";
+      else
+        x.style.display = "block";
+    }
+    const zozo = document.querySelectorAll("#bang li");
+    // const x = () => {
+    //   zozo.forEach((item)=>
+    //   item.classList.remove("active"));
+    //     this.classList.add("active");
+    // }
+    for (i = 0; i < zozo.length; i++)
+      zozo[i].addEventListener("click", (evt)=>{
+      let i;
+      for(i=0;i<zozo.length;i++){
+        zozo[i].className+=zozo[i].className.replace(" active","");
+      }
+      evt.currentTarget.className+=".active";
+    });
+    let input = document.getElementById("search");
+    filter = input.value.toUpperCase();
+    document.getElementById("demo").innerText = filter;
+  </script>
+</body>
+
+</html>

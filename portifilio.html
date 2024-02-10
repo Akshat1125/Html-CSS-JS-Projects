@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portifilio</title>
+    <link rel="stylesheet" href="portifilio.css">
+</head>
+
+<body>
+    <div class="nav">
+        <ul>
+            <li id="home"  ><a href="#">Home</a></li>
+            <li id="about" ><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Apps</a></li>
+        </ul>
+    </div>
+    <div class="home">
+        <div class="content">
+            <!-- <img src="pipi.avif" alt=""> -->
+            <h1 >Home Page</h1>
+            <pre style="color: rgb(236, 38, 47); font-size: larger;
+            margin-top: 6rem;
+            ">Web developer
+                from
+            prince of persia</pre>
+        </div>
+        <div class="image">
+            <img src="working.jpg" alt="">
+        </div>
+    </div>
+    <div class="about">
+        <div class="content">
+            <!-- <img src="pipi.avif" alt=""> -->
+            <h1 >About us</h1>
+            <p style="padding-top: 10rem;">working designers from prince of persia who love doing solo things</p>
+        </div>
+        <div class="image">
+            <img src="pipi.avif" alt="">
+        </div>
+    </div>
+    <div class="contactPage">
+        <div class="doc">
+            <label for="NAme">Name:<input type="text" name="Name" id="NAme"></label>
+            <label for="Phone">Phone No:<input type="tel" name="Phone" id="Phone"></label>
+        </div>
+    </div>
+
+<script>
+    let home=document.querySelector("#home");
+    let about=document.querySelector("#about");
+   const homePage=document.querySelector(".home");
+   const aboutPage=document.querySelector(".about");
+  const x=()=>{
+    aboutPage.style.display='none';
+    homePage.style.display='flex';
+   }
+  const y=()=>{
+    aboutPage.style.display='flex';
+    homePage.style.display='none';
+   }
+   home.addEventListener("click",x);
+   about.addEventListener("click",y);
+</script>
+</body>
+
+</html>
