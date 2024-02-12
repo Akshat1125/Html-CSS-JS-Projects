@@ -37,37 +37,37 @@
         </tr>
         <tr >
             <td><input type="button" class="Btn-size" value="DE" style="font-size:44px;" onclick="display.value = display.value.toString().slice(0,-1)"></td>
-            <td><input type="button" class="Btn-size" value="%"  onclick="display.value += '%'"></td>
-            <td><input type="button" class="Btn-size" value="pow" style="font-size:24px;" onclick="display.value += '**'"></td>
+            <td><input type="button" class="Btn-size" value="%"  onclick="if(display.value[display.value.length-1]!='*'&&display.value[display.value.length-1]!='%'&&display.value!=''&&display.value[display.value.length-1]!='/'&&display.value[display.value.length-1]!='+'&&display.value[display.value.length-1]!='-')display.value += '%'"></td>
+            <td><input type="button" class="Btn-size" value="pow" style="font-size:24px;" onclick="if(display.value[display.value.length-1]!='*'&&display.value[display.value.length-1]!='%'&&display.value!=''&&display.value[display.value.length-1]!='/'&&display.value[display.value.length-1]!='+'&&display.value[display.value.length-1]!='-')display.value += '**'"></td>
             <td><input type="button" class="Btn-size" value="AC" style="font-size:44px;" onclick="display.value = ''"></td>
         </tr>
         <tr class="width">
             <td><input type="button" class="Btn-size" value="7" onclick="display.value += '7'"></td>
             <td><input type="button" class="Btn-size" value="8" onclick="display.value += '8'"></td>
             <td><input type="button" class="Btn-size" value="9" onclick="display.value += '9'"></td>
-            <td><input type="button" class="Btn-size" value="/" onclick="display.value += '/'"></td>
+            <td><input type="button" class="Btn-size" value="/" onclick="if(display.value[display.value.length-1]!='*'&&display.value[display.value.length-1]!='%'&&display.value!=''&&display.value[display.value.length-1]!='/'&&display.value[display.value.length-1]!='+'&&display.value[display.value.length-1]!='-')display.value += '/'"></td>
         </tr>
         <tr class="width">
             <td><input type="button" class="Btn-size" value="4" onclick="display.value += '4'"></td>
             <td><input type="button" class="Btn-size" value="5" onclick="display.value += '5'"></td>
             <td><input type="button" class="Btn-size" value="6" onclick="display.value += '6'"></td>
-            <td><input type="button" class="Btn-size" value="*" onclick="display.value += '*'"></td>
+            <td><input type="button" class="Btn-size" value="*" onclick="if(display.value[display.value.length-1]!='*'&&display.value[display.value.length-1]!='%'&&display.value!=''&&display.value[display.value.length-1]!='/'&&display.value[display.value.length-1]!='+'&&display.value[display.value.length-1]!='-')display.value += '*'"></td>
         </tr>
         <tr class="width">
             <td><input type="button" class="Btn-size" value="1" onclick="display.value += '1'"></td>
             <td><input type="button" class="Btn-size" value="2" onclick="display.value += '2'"></td>
             <td><input type="button" class="Btn-size" value="3" onclick="display.value += '3'"></td>
-            <td><input type="button" class="Btn-size" value="-" onclick="display.value += '-'"></td>
+            <td><input type="button" class="Btn-size" value="-" onclick="if(display.value[display.value.length-1]!='*'&&display.value[display.value.length-1]!='%'&&display.value!=''&&display.value[display.value.length-1]!='/'&&display.value[display.value.length-1]!='+'&&display.value[display.value.length-1]!='-')display.value += '-'"></td>
         </tr>
         <tr class="width">
             <td><input type="button" class="Btn-size" value="0" onclick="display.value += '0'"></td>
             <td><input type="button" class="Btn-size" value="." onclick="display.value += '.'"></td>
             <td><input type="button" class="Btn-size" value="=" onclick="display.value = eval(display.value).toFixed(3)"></td>
-            <td><input type="button" class="Btn-size" value="+" onclick="display.value += '+'"></td>
+            <td><input type="button" class="Btn-size" value="+" onclick="if(display.value[display.value.length-1]!='*'&&display.value[display.value.length-1]!='%'&&display.value!=''&&display.value[display.value.length-1]!='/'&&display.value[display.value.length-1]!='+'&&display.value[display.value.length-1]!='-')display.value += '+'"></td>
         </tr>
-        
+
     </table>
 </center>
-    
+
 </body>
 </html>
