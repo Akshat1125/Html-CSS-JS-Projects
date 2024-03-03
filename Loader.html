@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loader</title>
+    <style>
+        body{
+            display: grid;
+            place-items: center;
+            height: 100vh;
+
+        }
+    .load{
+    height: 2rem;
+    width: 2rem;
+    border: 0.2rem solid red;
+    border-radius: 50%;
+    animation: loading 1s infinite ease;
+    }
+    @keyframes loading{
+        0%{
+            border-top:0.2rem solid red;
+        }
+        25%{
+            border-right:0.2rem solid red;
+        }
+        50%{
+            border-bottom:0.2rem solid red;
+        }
+        75%{
+            border-left:0.2rem solid red ;
+        }
+        100%{
+            border:none;
+        }
+    }
+    </style>
+</head>
+<body>
+    <div class="load"></div>
+
+</body>
+</html>
